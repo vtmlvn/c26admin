@@ -21,12 +21,13 @@
 <script>
   $(function () {
     $('#example1').DataTable()
+    $('#example3').DataTable()
     $('#example2').DataTable({
-      'paging'      : false,
-      'lengthChange': false,
+      'paging'      : true,
+      'lengthChange': true,
       'searching'   : true,
       'ordering'    : true,
-      'info'        : true,
+      'info'        : false,
       'autoWidth'   : false
     })
   })
