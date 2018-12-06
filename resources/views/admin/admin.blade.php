@@ -22,4 +22,10 @@
 @include('admin.tabel_order')
 
 @include('admin.tabel_pegawai')
+
+@include('admin.tabel_membership')
+
+@include('admin.tabel_customer')
+
+
 @stop

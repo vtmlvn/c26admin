@@ -28,7 +28,7 @@
         <td>088869420911</td>
         <td>Supervisor</td>
         <td>Rp3.500.000</td>
-        <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit"><i class="fa fa-edit"></i></button>
+        <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit_1"><i class="fa fa-edit"></i></button>
         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash" ></i></button></td>
       </tr>
       <tr>
@@ -38,7 +38,7 @@
         <td>0866666666666</td>
         <td>Karyawan</td>
         <td>Rp2.500.000</td>
-        <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit"><i class="fa fa-edit"></i></button>
+        <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit_1"><i class="fa fa-edit"></i></button>
         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash" ></i></button></td>
       </tr>
       </tbody>
@@ -130,7 +130,7 @@
     <!-- /.modal-dialog -->
   </div>
   <!-- /.modal -->
-  <div class="modal fade" id="modal-edit">
+  <div class="modal fade" id="modal-edit_1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
