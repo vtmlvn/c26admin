@@ -6,6 +6,7 @@
   <!-- /.box-header -->
   <div class="box-body">
   <button type="button" class="btn btn-block btn-primary" style="width:auto; margin-bottom: 10px;" data-toggle="modal" data-target="#modal-default">Tambah Pegawai</button>
+    @if(!empty($karyawans))
     <table id="example3" class="table table-bordered table-striped">
       <thead>
       <tr>
@@ -21,6 +22,125 @@
       </tr>
       </thead>
       <tbody>
+      @foreach($karyawans as $karyawan)
+      <tr>
+      <td>{{$karyawan['id_karyawan']}}</td>
+        <td>{{$karyawan['nama']}}</td>
+        <td>{{$karyawan['alamat']}}</td>
+        <td>{{$karyawan['no_hp']}}</td>
+        
+        @if($karyawan['issupervisor']=="1")
+        <td>Supervisor</td>
+        @else 
+        <td>Karyawan</td>
+        @endif
+        <td>Rp {{$karyawan['gaji']}}</td>
+        <td><a  href="{{action('KaryawanController@edit', $karyawan['id_karyawan'])}}" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit-{{$karyawan->id_karyawan}}"><i class="fa fa-edit"></i></a>
+        <a role="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger-{{ $karyawan->id_karyawan}}"><i class="fa fa-trash" ></i></button></td>
+      </tr>
+        <!-- /.modal -->
+  <div class="modal fade" id="modal-edit-{{$karyawan->id_karyawan}}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Edit Data Pegawai</h4>
+        </div>
+        <div class="modal-body">
+        <div class="box-body">
+            <div class="form-group">
+            <form method="post" action="{{action('KaryawanController@update', $karyawan['id_karyawan'])}}">
+            @csrf
+            <input name="_method" type="hidden" value="PATCH">
+              <label for="inputText3" class="col-sm-2 control-label">Nama</label>
+
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputText3" name="nama" value="{{$karyawan->nama}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputText3" class="col-sm-2 control-label">Alamat</label>
+
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputText3" name="alamat" value="{{$karyawan->alamat}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputNumber3" class="col-sm-2 control-label">No. HP</label>
+
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputNumber3" name="no_hp" value="{{$karyawan->no_hp}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputNumber3" class="col-sm-2 control-label">Gaji</label>
+
+              <div class="col-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon">Rp</span>
+                  <input type="text" class="form-control" name="gaji" value="{{$karyawan->gaji}}">
+                  <span class="input-group-addon">,00</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputUsername3" class="col-sm-2 control-label">Username</label>
+
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputUsername3" name="username" value="{{$karyawan->username}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id=""name="password" placeholder="Password">
+              </div>
+            </div><div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Status Supervisor</label>
+
+              <div class="col-sm-10">
+                      <input type="radio" name="issupervisor" value='1'> Ya 
+                      <input type="radio" name="issupervisor" value='0'> Tidak
+                  </div>
+                </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+      </form>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+      <!--modal delete -->
+      <div class="modal modal-danger fade" id="modal-danger-{{$karyawan->id_karyawan}}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Hapus Data Pegawai</h4>
+        </div>
+        <div class="modal-body">
+          <p>Yakin hapus data milik {{$karyawan->nama}} ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
+          <form action="{{action('KaryawanController@destroy', $karyawan['id_karyawan'])}}" method="post">
+            @csrf
+            <input name="_method" type="hidden" value="DELETE">
+            <button class="btn btn-danger" type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+      <!--end of modal delete -->
+
+      @endforeach
       <tr>
         <td>0002</td>
         <td>Sans Kuys</td>
@@ -28,7 +148,7 @@
         <td>088869420911</td>
         <td>Supervisor</td>
         <td>Rp3.500.000</td>
-        <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit_1"><i class="fa fa-edit"></i></button>
+        <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit"><i class="fa fa-edit"></i></button>
         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash" ></i></button></td>
       </tr>
       <tr>
@@ -38,7 +158,7 @@
         <td>0866666666666</td>
         <td>Karyawan</td>
         <td>Rp2.500.000</td>
-        <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit_1"><i class="fa fa-edit"></i></button>
+        <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit"><i class="fa fa-edit"></i></button>
         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash" ></i></button></td>
       </tr>
       </tbody>
@@ -64,34 +184,36 @@
         </div>
         <div class="modal-body">
           <div class="box-body">
+          <form method="post" action="{{url('admin')}}" enctype="multipart/form-data">
+          @csrf
             <div class="form-group">
-              <label for="inputText3" class="col-sm-2 control-label">Nama</label>
+              <label for="inputText3" class="col-sm-2 control-label" name="nama">Nama</label>
 
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputText3" placeholder="John Doe">
+                <input type="text" class="form-control" id="inputText3" placeholder="John Doe" name="nama">
               </div>
             </div>
             <div class="form-group">
-              <label for="inputText3" class="col-sm-2 control-label">Alamat</label>
+              <label for="inputText3" class="col-sm-2 control-label"name="alamat">Alamat</label>
 
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputText3" placeholder="Dramaga Cantik Blok A2-11">
+                <input type="text" class="form-control" id="inputText3" name="alamat" placeholder="Dramaga Cantik Blok A2-11">
               </div>
             </div>
             <div class="form-group">
               <label for="inputNumber3" class="col-sm-2 control-label">No. HP</label>
 
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputNumber3" placeholder="0818888888">
+                <input type="text" class="form-control" id="inputNumber3" name="no_hp" placeholder="0818888888">
               </div>
             </div>
             <div class="form-group">
-              <label for="inputNumber3" class="col-sm-2 control-label">Gaji</label>
+              <label for="inputNumber3" class="col-sm-2 control-label" >Gaji</label>
 
               <div class="col-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon">Rp</span>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control"name="gaji">
                   <span class="input-group-addon">,00</span>
                 </div>
               </div>
@@ -100,128 +222,44 @@
               <label for="inputUsername3" class="col-sm-2 control-label">Username</label>
 
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputUsername3" placeholder="asdfjieb">
+                <input type="text" class="form-control" id="inputUsername3" placeholder="asdfjieb" name="username">
               </div>
             </div>
             <div class="form-group">
               <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 
               <div class="col-sm-10">
-                <input type="password" class="form-control" id="" placeholder="Password">
+                <input type="password" class="form-control" id="" placeholder="Password"  name="password">
               </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Supervisor
-                    </label>
+              <label for="inputPassword3" class="col-sm-2 control-label">Status Supervisor</label>
+
+              <div class="col-sm-10">
+                      <input type="radio" name="issupervisor" value='1'> Ya 
+                      <input type="radio" name="issupervisor" value='0'> Tidak
                   </div>
                 </div>
               </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
       </div>
+      </form>
       <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
   </div>
+  
+  </form>
   <!-- /.modal -->
-  <div class="modal fade" id="modal-edit_1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Edit Data Pegawai</h4>
-        </div>
-        <div class="modal-body">
-        <div class="box-body">
-            <div class="form-group">
-              <label for="inputText3" class="col-sm-2 control-label">Nama</label>
+  
 
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputText3" placeholder="John Doe">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputText3" class="col-sm-2 control-label">Alamat</label>
-
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputText3" placeholder="Dramaga Cantik Blok A2-11">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputNumber3" class="col-sm-2 control-label">No. HP</label>
-
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputNumber3" placeholder="0818888888">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputNumber3" class="col-sm-2 control-label">Gaji</label>
-
-              <div class="col-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon">Rp</span>
-                  <input type="text" class="form-control">
-                  <span class="input-group-addon">,00</span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputUsername3" class="col-sm-2 control-label">Username</label>
-
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputUsername3" placeholder="asdfjieb">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Supervisor
-                    </label>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
-  <!-- /.modal -->
-  <div class="modal modal-danger fade" id="modal-danger">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Hapus Data Pegawai</h4>
-        </div>
-        <div class="modal-body">
-          <p>Yakin hapus data milik (NAMA) ?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
-          <button type="button" class="btn btn-outline">Hapus</button>
-        </div>
-      </div>
+      @else 
+      <p>tidak ada karyawan</p>
+      @endif      
       <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->

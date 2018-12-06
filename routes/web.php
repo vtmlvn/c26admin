@@ -13,3 +13,5 @@
 
 Route::get('/','Controller@index')->name('index');
 Route::get('/admin','Controller@admin')->name('admin');
+
+Route::resource('/admin','KaryawanController');
