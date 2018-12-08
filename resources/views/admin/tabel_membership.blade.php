@@ -25,6 +25,7 @@
           <td>Sans Kuys</td>
           <td>Darmaga Cans lelel no.420</td>
           <td>088869420911</td>
+          <td>Rp200.000</td>
           <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit_2"><i class="fa fa-edit"></i></button>
           <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash" ></i></button></td>
         </tr>
@@ -33,6 +34,7 @@
           <td>Papyrus Protectus</td>
           <td>Darmaga Cans lelel no.69</td>
           <td>0866666666666</td>
+          <td>Rp136.000</td>
           <td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit_2"><i class="fa fa-edit"></i></button>
           <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash" ></i></button></td>
         </tr>
@@ -80,7 +82,7 @@
                   <input type="text" class="form-control" id="inputNumber3" placeholder="0818888888">
                 </div>
               </div>
-              {{-- <div class="form-group">
+              <div class="form-group">
                 <label for="inputNumber3" class="col-sm-2 control-label">Deposit</label>
   
                 <div class="col-sm-10">
@@ -90,7 +92,7 @@
                     <span class="input-group-addon">,00</span>
                   </div>
                 </div>
-              </div> --}}
+              </div>
               {{-- <div class="form-group">
                 <label for="inputUsername3" class="col-sm-2 control-label">Username</label>
   
@@ -156,7 +158,7 @@
                   <input type="text" class="form-control" id="inputNumber3" placeholder="0818888888">
                 </div>
               </div>
-              {{-- <div class="form-group">
+              <div class="form-group">
                 <label for="inputNumber3" class="col-sm-2 control-label">Deposit</label>
   
                 <div class="col-sm-10">
@@ -166,7 +168,7 @@
                     <span class="input-group-addon">,00</span>
                   </div>
                 </div>
-              </div> --}}
+              </div>
               {{-- <div class="form-group">
                 <label for="inputUsername3" class="col-sm-2 control-label">Username</label>
   

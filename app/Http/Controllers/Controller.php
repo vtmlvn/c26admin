@@ -16,4 +16,13 @@ class Controller extends BaseController
     public function admin(){
         return view ('admin.admin');
     }
+    public function member(){
+        return view ('admin.member');
+    }
+    public function customer(){
+        return view ('admin.customer');
+    }
+    public function pegawai(){
+        return view ('admin.pegawai');
+    }
 }

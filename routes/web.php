@@ -12,6 +12,9 @@
 */
 
 Route::get('/','Controller@index')->name('index');
-Route::get('/admin','Controller@admin')->name('admin');
+Route::get('/admin/home','Controller@admin')->name('admin');
+Route::get('/admin/customer','Controller@customer')->name('customer');
+Route::get('/admin/member','Controller@member')->name('member');
+Route::get('/admin/pegawai','Controller@pegawai')->name('pegawai');
 
 Route::resource('/admin','KaryawanController');

@@ -28,8 +28,10 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">LAPORAN</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Rekap Keuangan Bulanan</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Laporan Pemasukan</span></a></li>
+        <li><a href="{{route('admin')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
+        <li><a href="{{route('customer')}}"><i class="fa fa-link"></i> <span>Customer</span></a></li>
+        <li><a href="{{route('member')}}"><i class="fa fa-link"></i> <span>Membership</span></a></li>
+        <li><a href="{{route('pegawai')}}"><i class="fa fa-link"></i> <span>Pegawai</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Laporan Apa Ini</span>
             <span class="pull-right-container">
@@ -37,7 +39,7 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Pemasukan</a></li>
+            <li><a href="{{route('pegawai')}}">Pegawai</a></li>
             <li><a href="#">Pengeluaran</a></li>
           </ul>
         </li>

@@ -1,11 +1,11 @@
 <!-- Tabel Pegawai -->
 <div class="box">
     <div class="box-header">
-      <h3 class="box-title">Tabel Membership</h3>
+      <h3 class="box-title">Tabel Customer</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-    <button type="button" class="btn btn-block btn-primary" style="width:auto; margin-bottom: 10px;" data-toggle="modal" data-target="#modal-default_1">Tambah Member</button>
+    <button type="button" class="btn btn-block btn-primary" style="width:auto; margin-bottom: 10px;" data-toggle="modal" data-target="#modal-default_2">Tambah Customer</button>
       <table id="example5" class="table table-bordered table-striped">
         <thead>
         <tr>
