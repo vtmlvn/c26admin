@@ -15,7 +15,7 @@ class KaryawanController extends Controller
     public function index()
     {
         $karyawans=Karyawan::all();
-        return view('admin.admin',compact('karyawans'));//
+        return view('admin/pegawai',compact('karyawans'));//
     }
 
     /**
@@ -25,7 +25,7 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        return view('admin');//
+        return view('admin/pegawai');//
     }
 
     /**
@@ -47,10 +47,10 @@ class KaryawanController extends Controller
             'issupervisor'=>'required|in:1,0',
         ]);
         if($validator->fails()){
-            return redirect('admin')->withInput()->withErrors($validator);
+            return redirect('admin/pegawai')->withInput()->withErrors($validator);
         }
         Karyawan::create($input);
-        return redirect('admin')->with('karyawans',$input);
+        return redirect('admin/pegawai')->with('karyawans',$input);
     }
 
     /**
@@ -73,7 +73,7 @@ class KaryawanController extends Controller
     public function edit($id)
     {
         $karyawan=Karyawan::find($id);
-        return view('admin',compact('karyawan','id'));//
+        return view('admin/pegawai',compact('karyawan','id'));//
     }
 
     /**
@@ -97,10 +97,10 @@ class KaryawanController extends Controller
             'issupervisor'=>'required|in:1,0',
         ]);
         if($validator->fails()){
-            return redirect('admin')->withInput()->withErrors($validator);
+            return redirect('admin/pegawai')->withInput()->withErrors($validator);
         }
         $karyawan->update($input);
-        return redirect('admin')->with('karyawans',$input);
+        return redirect('admin/pegawai')->with('karyawans',$input);
     }
 
     /**
@@ -113,6 +113,6 @@ class KaryawanController extends Controller
     {
         $karyawan=Karyawan::find($id);
         $karyawan->delete();
-        return redirect('admin')->with('karyawan',$karyawan);
+        return redirect('admin/pegawai')->with('karyawan',$karyawan);
     }
 }

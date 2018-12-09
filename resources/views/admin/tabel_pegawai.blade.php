@@ -6,8 +6,8 @@
   <!-- /.box-header -->
   <div class="box-body">
   <button type="button" class="btn btn-block btn-primary" style="width:auto; margin-bottom: 10px;" data-toggle="modal" data-target="#modal-default">Tambah Pegawai</button>
-    @if(!empty($karyawans))
     <table id="example3" class="table table-bordered table-striped">
+    @if(!empty($karyawans))
       <thead>
       <tr>
         <th>Id</th>
@@ -184,7 +184,7 @@
         </div>
         <div class="modal-body">
           <div class="box-body">
-          <form method="post" action="{{url('admin')}}" enctype="multipart/form-data">
+          <form method="post" action="{{route('pegawai.index')}}" enctype="multipart/form-data">
           @csrf
             <div class="form-group">
               <label for="inputText3" class="col-sm-2 control-label" name="nama">Nama</label>
