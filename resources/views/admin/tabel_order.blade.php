@@ -17,8 +17,15 @@
         <th>Tanggal Selesai</th>
         <th>Total Harga</th>
         <th>Dibuat sejak</th>
+<<<<<<< HEAD
         <th>Lihat Invoice</th>
         <th></th>
+=======
+        <th>Download Invoice</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+>>>>>>> 7ccb664c99a43ffd12e04cd5d0f284e82bb84ccf
       </tr>
       </thead>
       <tbody>
@@ -30,6 +37,7 @@
                     <td>{{ $invoice->tanggal_keluar }}</td>
                     <td>{{ $invoice->total_biaya }}</td>
                     <td>{{ $invoice->created_at->diffForHumans() }}</td>
+<<<<<<< HEAD
                     <td><a href="{{ route('invoices.show', $invoice)}}" class="btn btn-default btn-sm">View</a>
                         </td>
                     <td class="text-right">
@@ -40,18 +48,44 @@
                             <input type="hidden" name="_method" value="delete">
                             <input type="submit" value="Delete" class="btn btn-danger btn-sm">
                         </td>
+=======
+                    <td><a href="http://pdf-ace.com/pdfme?url=/invoices/{{ $invoice->invoice_no }}" target= "_blank">Save as PDF</a></td>
+                    <td><a href="{{ route('invoices.show', $invoice)}}" class="btn btn-default btn-sm"><i class="fa fa-book"></i></a></td>
+                    <td><a href="{{ route('invoices.edit', $invoice)}}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a></td>
+                    <td >
+                        <form class="form-inline" action="{{ route('invoices.destroy', $invoice) }}" method="POST" onSubmit="return confirm('Are you sure?')">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="_method" value="delete">
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+>>>>>>> 7ccb664c99a43ffd12e04cd5d0f284e82bb84ccf
                         </form>
                     </td>
-        </tr>      
+            </tr>      
         @endforeach
         </tbody>
+<<<<<<< HEAD
+=======
+      <tfoot>
+      <tr>
+        <th>No. Order</th>
+        <th>Nama</th>
+        <th>Tanggal Mulai</th>
+        <th>Tanggal Selesai</th>
+        <th>Total Harga</th>
+        <th>Dibuat sejak</th>
+        <th>Download Invoice</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      </tfoot>
+>>>>>>> 7ccb664c99a43ffd12e04cd5d0f284e82bb84ccf
     </table>
   </div>
   @else
         <div class="invoice-empty">
             <p class="invoice-empty-title">
                 No invoices were created.
-
             </p>
         </div>
         @endif

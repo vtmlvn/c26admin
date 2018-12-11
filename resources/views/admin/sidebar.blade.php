@@ -33,13 +33,13 @@
         <li><a href="{{route('member')}}"><i class="fa fa-link"></i> <span>Membership</span></a></li>
         <li><a href="{{route('pegawai')}}"><i class="fa fa-link"></i> <span>Pegawai</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Laporan Apa Ini</span>
+          <a href="#"><i class="fa fa-link"></i> <span>Laporan Keuangan</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('pegawai')}}">Pegawai</a></li>
+            <li><a href="#">Pemasukan</a></li>
             <li><a href="#">Pengeluaran</a></li>
           </ul>
         </li>

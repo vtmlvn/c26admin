@@ -17,5 +17,8 @@
 
 @include('admin.tabel_customer')
 
+@include('admin.tabel_pemasukan')
+@include('admin.tabel_pengeluaran')
+
 
 @stop
