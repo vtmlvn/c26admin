@@ -5,10 +5,6 @@
     <div class="panel-heading">
         <div class="clearfix">
             <span class="panel-title">Invoice</span>
-            <div class="pull-right">
-                <a href="{{ route('invoices.index') }}" class="btn btn-default">Back</a>
-                <a href="{{ route('invoices.edit', $invoice) }}" class="btn btn-primary">Edit</a>
-            </div>
         </div>
     </div>
     <div class="panel-body">
@@ -19,17 +15,17 @@
                     <p>{{ $invoice->invoice_no }}</p>
                 </div>
                 <div class="form-group">
-                    <label>Total Biaya</label>
+                    <label>Grand Total</label>
                     <p>{{ $invoice->total_biaya }}</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label>Nama Customer</label>
+                    <label>Client</label>
                     <p>{{ $invoice->nama_customer }}</p>
                 </div>
                 <div class="form-group">
-                    <label>Alamat</label>
+                    <label>Client Address</label>
                     <pre class="pre">{{ $invoice->alamat_customer }}</pre>
                 </div>
             </div>
@@ -40,11 +36,11 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6 form-group">
-                        <label>Tanggal Masuk</label>
+                        <label>Invoice Date</label>
                         <p>{{ $invoice->tanggal_masuk }}</p>
                     </div>
                     <div class="col-sm-6 form-group">
-                        <label>Tanggal Keluar</label>
+                        <label>Due Date</label>
                         <p>{{ $invoice->tanggal_keluar }}</p>
                     </div>
                 </div>
@@ -52,9 +48,9 @@
                 <table class="table table-bordered table-stripped">
                     <thead>
                         <tr>
-                            <th>Layanan</th>
-                            <th>Harga</th>
-                            <th>Jumlah</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Qty</th>
                             <th>Total</th>
                         </tr>
                     </thead>
@@ -81,7 +77,7 @@
                         </tr>
                         <tr>
                             <td class="table-empty" colspan=2></td>
-                            <td class="table-label">Total Biaya</td>
+                            <td class="table-label">Grand Total</td>
                             <td class="table-amount">{{ $invoice->total_biaya }}</td>
                         </tr>
                     </tfoot>

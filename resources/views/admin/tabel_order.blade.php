@@ -17,7 +17,8 @@
         <th>Tanggal Selesai</th>
         <th>Total Harga</th>
         <th>Dibuat sejak</th>
-        <th>Download Invoice</th>
+        <th>Lihat Invoice</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -29,29 +30,21 @@
                     <td>{{ $invoice->tanggal_keluar }}</td>
                     <td>{{ $invoice->total_biaya }}</td>
                     <td>{{ $invoice->created_at->diffForHumans() }}</td>
-                    <td></td>
+                    <td><a href="{{ route('invoices.show', $invoice)}}" class="btn btn-default btn-sm">View</a>
+                        </td>
                     <td class="text-right">
-                        <a href="{{ route('invoices.show', $invoice)}}" class="btn btn-default btn-sm">View</a>
                         <a href="{{ route('invoices.edit', $invoice)}}" class="btn btn-primary btn-sm">Edit</a>
-                        <form class="form-inline" action="{{ route('invoices.destroy', $invoice) }}" method="POST" onSubmit="return confirm('Are you sure?')">
+                        </td>
+                        <td><form class="form-inline" action="{{ route('invoices.destroy', $invoice) }}" method="POST" onSubmit="return confirm('Are you sure?')">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="_method" value="delete">
                             <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                        </td>
                         </form>
                     </td>
         </tr>      
         @endforeach
         </tbody>
-      <tfoot>
-      <tr>
-        <th>No. Order</th>
-        <th>Nama</th>
-        <th>Tanggal Mulai</th>
-        <th>Tanggal Selesai</th>
-        <th>Total Harga</th>
-        <th>Download Invoice</th>
-      </tr>
-      </tfoot>
     </table>
   </div>
   @else

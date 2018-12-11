@@ -28,7 +28,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">LAPORAN</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="{{route('admin')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
+        <li><a href="{{route('home.index')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
         <li><a href="{{route('customer')}}"><i class="fa fa-link"></i> <span>Customer</span></a></li>
         <li><a href="{{route('member')}}"><i class="fa fa-link"></i> <span>Membership</span></a></li>
         <li><a href="{{route('pegawai')}}"><i class="fa fa-link"></i> <span>Pegawai</span></a></li>

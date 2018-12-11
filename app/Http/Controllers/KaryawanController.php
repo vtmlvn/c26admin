@@ -100,7 +100,7 @@ class KaryawanController extends Controller
             return redirect('admin/pegawai')->withInput()->withErrors($validator);
         }
         $karyawan->update($input);
-        return redirect('admin/pegawai')->with('karyawans',$input);
+        return redirect('admin/pegawai')->with('karyawan',$input);
     }
 
     /**

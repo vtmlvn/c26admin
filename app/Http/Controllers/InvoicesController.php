@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Invoice;
 use App\Orderan;
+use DB;
+use PDF;
+
 class InvoicesController extends Controller
 {
     public function index()
@@ -56,6 +59,8 @@ class InvoicesController extends Controller
         'created' => true,
         'id' => $invoice->id
       ]);
+
+      return view('admin.admin');
     }
 
     public function edit($id)
@@ -86,7 +91,7 @@ class InvoicesController extends Controller
         'orderans.*.harga' => 'required|min:1|integer',
         'orderans.*.jumlah' => 'required|integer|min:1'
       ]);
-
+      
       $invoice = Invoice::findOrFail($id);
 
       $orderans = collect($req->orderans)->transform(function($orderan) {
@@ -127,6 +132,17 @@ class InvoicesController extends Controller
 
       return redirect()->route('invoices.index'); 
 
+    }
+    public function pdfview($id){
+      $invoice = Invoice::findorFail($id);
+        view()->share('invoice',$invoice);
+
+        
+        	// pass view file
+            $pdf = PDF::loadView('invoices.pdfview');
+            // download pdf
+        
+        return view('invoices.pdfview');
     }
 
 }

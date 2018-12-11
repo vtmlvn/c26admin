@@ -16,6 +16,7 @@ Route::get('/admin/home','InvoicesController@index')->name('admin');
 Route::get('/admin/customer','Controller@customer')->name('customer');
 Route::get('/admin/member','Controller@member')->name('member');
 Route::get('/admin/pegawai','KaryawanController@index')->name('pegawai');
-
+Route::resource('admin/home','InvoicesController');
 Route::resource('invoices','InvoicesController');
 Route::resource('pegawai','KaryawanController');
+Route::get('generate-pdf/{id}', 'InvoicesController@pdfview')->name('generate-pdf');
