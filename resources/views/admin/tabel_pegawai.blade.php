@@ -6,7 +6,7 @@
   <!-- /.box-header -->
   <div class="box-body">
   <button type="button" class="btn btn-block btn-primary" style="width:auto; margin-bottom: 10px;" data-toggle="modal" data-target="#modal-default">Tambah Pegawai</button>
-    <table id="example3" class="table table-bordered table-striped">
+    <table id="example1" class="table table-bordered table-striped">
     @if(!empty($karyawans))
       <thead>
       <tr>
@@ -35,7 +35,7 @@
         <td>Karyawan</td>
         @endif
         <td>Rp {{$karyawan['gaji']}}</td>
-        <td><a  href="{{action('KaryawanController@edit', $karyawan['id_karyawan'])}}" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit-{{$karyawan->id_karyawan}}"><i class="fa fa-edit"></i></a>
+        <td><a type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit-{{$karyawan->id_karyawan}}"><i class="fa fa-edit"></i></a>
         <a role="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger-{{ $karyawan->id_karyawan}}"><i class="fa fa-trash" ></i></button></td>
       </tr>
         <!-- /.modal -->

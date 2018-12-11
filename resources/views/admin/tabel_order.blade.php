@@ -18,6 +18,9 @@
         <th>Total Harga</th>
         <th>Dibuat sejak</th>
         <th>Download Invoice</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
       </thead>
       <tbody>
@@ -29,17 +32,17 @@
                     <td>{{ $invoice->tanggal_keluar }}</td>
                     <td>{{ $invoice->total_biaya }}</td>
                     <td>{{ $invoice->created_at->diffForHumans() }}</td>
-                    <td></td>
-                    <td class="text-right">
-                        <a href="{{ route('invoices.show', $invoice)}}" class="btn btn-default btn-sm">View</a>
-                        <a href="{{ route('invoices.edit', $invoice)}}" class="btn btn-primary btn-sm">Edit</a>
+                    <td><a href="http://pdf-ace.com/pdfme?url=/invoices/{{ $invoice->invoice_no }}" target= "_blank">Save as PDF</a></td>
+                    <td><a href="{{ route('invoices.show', $invoice)}}" class="btn btn-default btn-sm"><i class="fa fa-book"></i></a></td>
+                    <td><a href="{{ route('invoices.edit', $invoice)}}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a></td>
+                    <td >
                         <form class="form-inline" action="{{ route('invoices.destroy', $invoice) }}" method="POST" onSubmit="return confirm('Are you sure?')">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="_method" value="delete">
-                            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                         </form>
                     </td>
-        </tr>      
+            </tr>      
         @endforeach
         </tbody>
       <tfoot>
@@ -49,7 +52,11 @@
         <th>Tanggal Mulai</th>
         <th>Tanggal Selesai</th>
         <th>Total Harga</th>
+        <th>Dibuat sejak</th>
         <th>Download Invoice</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
       </tfoot>
     </table>

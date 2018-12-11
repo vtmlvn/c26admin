@@ -16,5 +16,4 @@
 @section('content')
 
 @include('admin.tabel_pegawai')
-
 @stop
