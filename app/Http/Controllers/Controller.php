@@ -22,4 +22,24 @@ class Controller extends BaseController
     public function pegawai(){
         return view ('admin.pegawai');
     }
+    public function membership()
+    {
+        return view('membership');
+    }
+    public function tentangkami()
+    {
+        return view('tentangkami');
+    }
+    public function layanan()
+    {
+        return view('layanan');
+    }
+    public function lacaklaundry()
+    {
+        return view('lacaklaundry');
+    }
+    public function ceksaldo()
+    {
+        return view('ceksaldo');
+    }
 }
