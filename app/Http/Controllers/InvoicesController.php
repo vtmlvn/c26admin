@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Invoice;
 use App\Orderan;
+use Carbon\Carbon;
 use DB;
 use PDF;
 
@@ -18,7 +19,10 @@ class InvoicesController extends Controller
 
     public function create()
     {
-      return view('invoices.create');
+      $now= now()->format('Y-m-d');
+      $nweek= now()->addWeek()->format('Y-m-d');
+      $lweek= now()->subWeek()->format('Y-m-d');
+      return view('invoices.create', compact('now', 'nweek', 'lweek'));
     }
 
     public function store(Request $req)
@@ -60,7 +64,7 @@ class InvoicesController extends Controller
         'id' => $invoice->id
       ]);
 
-      return view('admin.admin');
+      return view('admin.admin', compact('invoices'));
     }
 
     public function edit($id)

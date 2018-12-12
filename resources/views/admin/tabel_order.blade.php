@@ -18,7 +18,9 @@
         <th>Total Harga</th>
         <th>Dibuat sejak</th>
         <th>Lihat Invoice</th>
-        <th></th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
       </thead>
       <tbody>
