@@ -16,6 +16,10 @@ Route::get('/admin/home','InvoicesController@index')->name('admin');
 Route::get('/admin/customer','Controller@customer')->name('customer');
 Route::get('/admin/member','Controller@member')->name('member');
 Route::get('/admin/pegawai','KaryawanController@index')->name('pegawai');
+Route::get('/admin/masuk','PemasukanController@index')->name('masuk');
+Route::get('/admin/keluar','PengeluaranController@index')->name('keluar');
+Route::get('/admin/laporanC','CEOLaporanController@index')->name('laporanC');
+Route::get('/admin/laporanS','SuperLaporanController@index')->name('laporanS');
 
 Route::resource('invoices','InvoicesController');
 Route::resource('pegawai','KaryawanController');

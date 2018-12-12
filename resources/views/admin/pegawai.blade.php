@@ -6,10 +6,7 @@
     Pegawai
     <!-- <small>Optional description</small> -->
     </h1>
-    <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Admin View</a></li>
-    <li class="active">Pegawai</li>
-    </ol>
+
 </section>
 @stop
 
