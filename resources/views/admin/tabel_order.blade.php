@@ -17,10 +17,8 @@
         <th>Tanggal Selesai</th>
         <th>Total Harga</th>
         <th>Dibuat sejak</th>
-        <th>Download Invoice</th>
-        <th>View</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Lihat Invoice</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -65,7 +63,6 @@
         <div class="invoice-empty">
             <p class="invoice-empty-title">
                 No invoices were created.
-
             </p>
         </div>
         @endif

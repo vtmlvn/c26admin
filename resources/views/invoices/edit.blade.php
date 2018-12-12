@@ -6,15 +6,15 @@
             <div class="panel-heading">
                 <div class="clearfix">
                     <span class="panel-title">Edit Invoice</span>
-                    <a href="{{ route('invoices.index') }}" class="btn btn-default pull-right">Back</a>
+                    <a href="{{ route('home.index') }}" class="btn btn-default pull-right">Back</a>
                 </div>
             </div>
-            <div class="panel-body">
+            <div class="panel-body">      
                 @include('invoices.form')
             </div>
             <div class="panel-footer">
-                <a href="{{ route('invoices.index') }}" class="btn btn-default">CANCEL</a>
-                <button class="btn btn-success" @click="update" :disabled="isProcessing">UPDATE</button>
+                <a href="{{ route('home.index') }}" class="btn btn-default">CANCEL</a>
+                <button class="btn btn-success" @click="update" onclick="window.location='{{ route('home.index')}}'":disabled="isProcessing">UPDATE</button>
             </div>
         </div>
     </div>

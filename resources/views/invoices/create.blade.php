@@ -6,16 +6,17 @@
             <div class="panel-heading">
                 <div class="clearfix">
                     <span class="panel-title">Create Invoice</span>
-                    <a href="{{ route('invoices.index') }}" class="btn btn-default pull-right">Back</a>
+                    <a href="{{ route('home.index') }}" class="btn btn-default pull-right">Back</a>
                 </div>
             </div>
             <div class="panel-body">
                 @include('invoices.form')
             </div>
             <div class="panel-footer">
-                <a href="{{ route('invoices.index') }}" class="btn btn-default">CANCEL</a>
-                <a class="btn btn-success" @click="create" href="{{ route('invoices.index') }}":disabled="isProcessing">CREATE</a>
+                <a href="{{ route('home.index') }}" class="btn btn-default">CANCEL</a>
+                <a class="btn btn-success" @click="create" onclick="window.location='{{ route('home.index')}}'" :disabled="isProcessing">CREATE</a>
             </div>
+            </form>
         </div>
     </div>
 @stop
@@ -42,5 +43,5 @@
         }]
     };
 </script>
-<script src="/js/app.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 @endpush
