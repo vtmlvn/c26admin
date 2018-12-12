@@ -89,6 +89,15 @@
                 <td class="table-label">Total Biaya</td>
                 <td class="table-amount">@{{total_biaya}}</td>
             </tr>
+            <tr>
+                <td class="table-empty" colspan=3></td>
+                <td class="table-label">Status</td>
+                <td class="table-status" :class="{'table-error': errors.status}">
+                    <input type="radio" v-model="form.status" value="Lunas">Lunas <br>
+                    <input type="radio" v-model="form.status" value="Belum Lunas">Belum Lunas
+                </td>
+                </div>
+            </tr>
         </tfoot>
     </table>
 </div>

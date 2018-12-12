@@ -24,6 +24,7 @@ class CreateInvoicesTable extends Migration
             $table->integer('subtotal');
             $table->integer('diskon');
             $table->integer('total_biaya');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -8,12 +8,12 @@
     <div class="box-body">
       <table id="example1" class="table table-bordered table-striped">
         <thead>
+        
         <tr>
           <th>Id</th>
           <th>Tanggal</th>
           <th>Nama Pemasukan</th>
           <th>Jumlah</th>
-          <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -30,6 +30,22 @@
           <td>User #asdxyz </td>
           <td>Rp700.000, 00</td>
           <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash" ></i></button></td>
+        </tr>
+        
+        @foreach ($invoices as $invoice)
+        @if($invoice->status=="Lunas")
+        <tr>
+          <td>{{$invoice->id}}</td>
+          <td>{{$invoice->tanggal_masuk}}</td>
+          <td>Invoice Customer {{$invoice->nama_customer}} </td>
+          <td>Rp {{$invoice->total_biaya}}</td>
+         </tr>
+        @endif
+        @endforeach
+        <tr>
+          <td colspan=3>Jumlah</td>
+          <td>Rp {{$jumlah}}</td>
+          <td>
         </tr>
         </tbody>
       </table>
