@@ -15,8 +15,12 @@ class CreatePengeluaransTable extends Migration
     {
         Schema::create('pengeluarans', function (Blueprint $table) {
             $table->increments('id_pengeluaran');
-            $table->string('jenis_pengeluaran');
-            $table->integer('biaya');
+            $table->date('tanggal');
+            $table->string('permintaan');
+            $table->integer('jumlah');
+            $table->integer('harga_satuan');
+            $table->integer('total');
+            $table->string('status');
             $table->timestamps();
         });
     }

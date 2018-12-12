@@ -11,21 +11,24 @@ class PengeluaranController extends Controller
     public function index()
     {
         $pengeluarans=Pengeluaran::all();
-        return view('admin/pengeluaran',compact('pengeluarans'));//
+        return view('admin/laporanS',compact('pengeluarans'));//
     }
 
     public function store(Request $request)
     {
         $input = $request->all();
         $validator = Validator::make($input,[
-            'jenis_pengeluaran'=>'required|string|max:30',
-            'biaya'=>'required|int',
+            'tanggal'=>'required|date',
+            'permintaan'=>'required|string|max:30',
+            'jumlah'=>'required|int',
+            'harga_satuan'=>'required|int',
+            'status'=>'required|string',
         ]);
         if($validator->fails()){
-            return redirect('admin/pegawai')->withInput()->withErrors($validator);
+            return redirect('admin/laporanS')->withInput()->withErrors($validator);
         }
         Pengeluaran::create($input);
-        return redirect('admin/pegawai')->with('karyawans',$input);
+        return redirect('admin/laporanS')->with('pengeluarans',$input);
     }
 
     /**
@@ -48,7 +51,7 @@ class PengeluaranController extends Controller
     public function edit($id)
     {
         $pengeluaran=Pengeluaran::find($id);
-        return view('admin/pegawai',compact('pengeluaran','id'));//
+        return view('admin/laporanS',compact('pengeluaran','id'));//
     }
 
     /**
@@ -63,14 +66,16 @@ class PengeluaranController extends Controller
         $pengeluaran=Pengeluaran::find($id);
         $input = $request->all();
         $validator = Validator::make($input,[
-            'jenis_pengeluaran'=>'required|string|max:30',
-            'biaya'=>'required|int',
+            'permintaan'=>'required|string|max:30',
+            'jumlah'=>'required|int',
+            'harga_satuan'=>'required|int',
+   
         ]);
         if($validator->fails()){
-            return redirect('admin/pegawai')->withInput()->withErrors($validator);
+            return redirect('admin/laporanS')->withInput()->withErrors($validator);
         }
         $pengeluaran->update($input);
-        return redirect('admin/pegawai')->with('pengeluaran',$input);
+        return redirect('admin/laporanS')->with('pengeluaran',$input);
     }
 
     /**
@@ -83,6 +88,6 @@ class PengeluaranController extends Controller
     {
         $pengeluaran=Pengeluaran::find($id);
         $pengeluaran->delete();
-        return redirect('admin/pegawai')->with('pengeluaran',$pengeluaran);
+        return redirect('admin/laporanS')->with('pengeluaran',$pengeluaran);
     }
 }
