@@ -13,9 +13,6 @@ class Controller extends BaseController
     public function index(){
         return view ('welcome');
     }
-    public function admin(){
-        return view ('admin.admin');
-    }
     public function member(){
         return view ('admin.member');
     }

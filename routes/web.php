@@ -12,7 +12,7 @@
 */
 
 Route::get('/','Controller@index')->name('index');
-Route::get('/admin/home','InvoicesController@index')->name('admin');
+Route::get('/admin/home','InvoicesController@index')->name('home.index');
 Route::get('/admin/customer','Controller@customer')->name('customer');
 Route::get('/admin/member','MembershipController@index')->name('member');
 Route::get('/admin/pegawai','KaryawanController@index')->name('pegawai');

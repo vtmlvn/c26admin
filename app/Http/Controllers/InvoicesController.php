@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Invoice;
 use App\Orderan;
+use Carbon\Carbon;
 use DB;
 use PDF;
 
@@ -18,7 +19,10 @@ class InvoicesController extends Controller
 
     public function create()
     {
-      return view('invoices.create');
+      $now= now()->format('Y-m-d');
+      $nweek= now()->addWeek()->format('Y-m-d');
+      $lweek= now()->subWeek()->format('Y-m-d');
+      return view('invoices.create', compact('now', 'nweek', 'lweek'));
     }
 
     public function store(Request $req)
@@ -30,6 +34,7 @@ class InvoicesController extends Controller
         'tanggal_masuk' => 'required|date_format:Y-m-d',
         'tanggal_keluar' => 'required|date_format:Y-m-d',
         'judul' => 'required|max:255',
+        'status'=>'required|max:255',
         'diskon' => 'required|integer|min:0',
         'orderans.*.nama' => 'required|max:255',
         'orderans.*.harga' => 'required|min:1|integer',
@@ -60,14 +65,17 @@ class InvoicesController extends Controller
         'id' => $invoice->id
       ]);
 
-      return view('admin.admin');
+      return view('admin.admin', compact('invoices'));
     }
 
     public function edit($id)
     {
       $invoice = Invoice::with('orderans')->findOrFail($id);
-
-      return view('invoices.edit', compact('invoice'));
+      $now= now()->format('Y-m-d');
+      $nweek= now()->addWeek()->format('Y-m-d');
+      $lweek= now()->subWeek()->format('Y-m-d');
+     
+      return view('invoices.edit', compact('invoice','now','nweek','lweek'));
     }
 
     public function show($id)
@@ -80,12 +88,12 @@ class InvoicesController extends Controller
     public function update(Request $req, $id)
     {
       $this->validate($req, [
-        'invoice_no' => 'required|alpha_dash|unique:invoices',
         'nama_customer' => 'required|max:255',
         'alamat_customer' => 'required|max:255',
         'tanggal_masuk' => 'required|date_format:Y-m-d',
         'tanggal_keluar' => 'required|date_format:Y-m-d',
         'judul' => 'required|max:255',
+        'status'=>'required|max:255',
         'diskon' => 'required|integer|min:0',
         'orderans.*.nama' => 'required|max:255',
         'orderans.*.harga' => 'required|min:1|integer',
