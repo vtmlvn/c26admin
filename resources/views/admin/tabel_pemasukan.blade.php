@@ -44,7 +44,7 @@
         @endforeach
         <tr>
           <td colspan=3>Jumlah</td>
-          
+          <td>Rp {{$jumlah}}</td>
           <td>
         </tr>
         </tbody>

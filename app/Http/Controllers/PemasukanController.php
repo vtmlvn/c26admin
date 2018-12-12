@@ -9,17 +9,8 @@ class PemasukanController extends Controller
     public function index()
     {
         $invoices = Invoice::all();
-        return view('admin.pemasukan',compact('invoices'));
+        $jumlah = Invoice::where('status','Lunas')->sum('total_biaya');
+        return view('admin.pemasukan',compact('invoices','jumlah'));
     }
-    public function destroy($id)
-    {
-      $invoice = Invoice::findOrFail($id);
-
-      Orderan::where('invoice_id', $invoice->id)->delete();
-
-      $invoice->delete();
-
-      return redirect()->route('invoices.index'); 
-
-    }
+    
 }
