@@ -18,6 +18,4 @@
 
 @include('admin.tabel_membership')
 
-
-
 @stop

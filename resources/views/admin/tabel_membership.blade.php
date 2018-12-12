@@ -5,7 +5,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-  <button type="button" class="btn btn-block btn-primary" style="width:auto; margin-bottom: 10px;" data-toggle="modal" data-target="#modal-default">Tambah Membership</button>
+  <a type="button" class="btn btn-block btn-primary" style="width:auto; margin-bottom: 10px;" data-toggle="modal" data-target="#modal-default">Tambah Membership</a>
     <table id="example1" class="table table-bordered table-striped">
     @if(!empty($memberships))
       <thead>
@@ -29,7 +29,7 @@
         <td>{{$membership['no_hp']}}</td>
         <td>{{$membership['jumlah_deposit']}}</td>
         <td><a type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit-{{$membership->id_membership}}"><i class="fa fa-edit"></i></a>
-        <a role="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger-{{$membership->id_membership}}"><i class="fa fa-trash" ></i></button></td>
+        <a type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger-{{$membership->id_membership}}"><i class="fa fa-trash" ></i></button></td>
       </tr>
         <!-- /.modal -->
   <div class="modal fade" id="modal-edit-{{$membership->id_membership}}">
@@ -88,27 +88,31 @@
     <!-- /.modal-dialog -->
   </div>
 
-      <!--modal delete -->
-      <div class="modal modal-danger fade" id="modal-danger-{{$membership->id_membership}}">
+  <!-- /.modal -->
+  <!--modal delete -->
+  <div class="modal modal-danger fade" id="modal-danger-{{$membership->id_membership}}">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Hapus Data Membership</h4>
+          <h4 class="modal-title">Danger Modal</h4>
         </div>
         <div class="modal-body">
-          <p>Yakin hapus data milik {{$membership->nama}} ?</p>
+          <p>One fine body&hellip;</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
-          <form action="{{action('MembershipController@destroy', $membership['id_membership'])}}" method="post">
-            @csrf
-            <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button>
-          </form>
+          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline">Save changes</button>
         </div>
       </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+      
+      <!-- /.modal -->
       <!--end of modal delete -->
 
       @endforeach
@@ -188,18 +192,16 @@
               </div>
             </div>
             
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
         </div>
-      </div>
-      </form>
+        </form>
       <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
   </div>
   
-  </form>
-  <!-- /.modal -->
   
 
       @else 

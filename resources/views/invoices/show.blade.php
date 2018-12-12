@@ -84,6 +84,11 @@
                             <td class="table-label">Total Biaya</td>
                             <td class="table-amount">{{ $invoice->total_biaya }}</td>
                         </tr>
+                        <tr>
+                            <td class="table-empty" colspan=2></td>
+                            <td class="table-label">Status</td>
+                            <td class="table-amount">{{ $invoice->status }}</td>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
