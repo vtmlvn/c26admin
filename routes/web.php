@@ -13,7 +13,6 @@
 
 Route::get('/','Controller@index')->name('index');
 Route::get('/admin/home','InvoicesController@index')->name('home.index');
-Route::get('/admin/customer','Controller@customer')->name('customer');
 Route::get('/admin/member','MembershipController@index')->name('member');
 Route::get('/admin/pegawai','KaryawanController@index')->name('pegawai');
 
@@ -24,6 +23,7 @@ Route::get('/admin/laporanC','CEOLaporanController@index')->name('laporanC');
 Route::get('/admin/laporanS','SuperLaporanController@index')->name('laporanS');
 
 Route::resource('admin/home','InvoicesController');
+Route::resource('graph','GraphController');
 Route::resource('invoices','InvoicesController');
 Route::resource('pegawai','KaryawanController');
 Route::resource('member','MembershipController');

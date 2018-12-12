@@ -35,6 +35,7 @@ class InvoicesController extends Controller
         'tanggal_keluar' => 'required|date_format:Y-m-d',
         'judul' => 'required|max:255',
         'diskon' => 'required|integer|min:0',
+        'status' => 'required',
         'orderans.*.nama' => 'required|max:255',
         'orderans.*.harga' => 'required|min:1|integer',
         'orderans.*.jumlah' => 'required|integer|min:1'
@@ -69,9 +70,12 @@ class InvoicesController extends Controller
 
     public function edit($id)
     {
+      $now= now()->format('Y-m-d');
+      $nweek= now()->addWeek()->format('Y-m-d');
+      $lweek= now()->subWeek()->format('Y-m-d');
       $invoice = Invoice::with('orderans')->findOrFail($id);
 
-      return view('invoices.edit', compact('invoice'));
+      return view('invoices.edit', compact('invoice', 'now', 'nweek', 'lweek'));
     }
 
     public function show($id)

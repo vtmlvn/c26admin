@@ -67,13 +67,14 @@
                     <span class="table-text">@{{ orderan.jumlah * orderan.harga }}</span>
                 </td>
                 <td class="table-remove">
-                    <span @click="remove(orderan)" class="table-remove-btn">&times;</span>
+                    <a href="#" @click="remove(orderan)" class="btn btn-xs btn-danger fa fa-times"></a>
                 </td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td class="table-empty" colspan=3><a href="#" @click="addLine()">Tambah Orderan</a></td>
+                
+                <td class="table-empty" colspan=3><a href="#" @click="addLine()" class="btn btn-xs btn-info fa fa-plus">   Tambah Orderan</a></td>
                 <td class="table-label">Sub Total</td>
                 <td class="table-amount">@{{subtotal}}</td>
             </tr>
@@ -88,6 +89,13 @@
                 <td class="table-empty" colspan=3></td>
                 <td class="table-label">Total Biaya</td>
                 <td class="table-amount">@{{total_biaya}}</td>
+            </tr>
+            <tr>
+                <td class="table-empty" colspan=3></td>
+                <td class="table-label">Status</td>
+                <td class="table-control">
+                    <input type="text" class="table-status_input" v-model="form.status">
+                </td>
             </tr>
         </tfoot>
     </table>

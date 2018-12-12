@@ -18,9 +18,6 @@
 @stop
 
 @section('content')
-<!-- Grafik Perkembangan Keuangan -->
-{{-- @include('admin.graph_keuangan') --}}
-      <!-- /.row -->
 
 <!-- Tabel Keuangan -->
 @include('admin.tabel_order')

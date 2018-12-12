@@ -5,7 +5,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-  <button type="button" class="btn btn-block btn-primary" style="width:auto; margin-bottom: 10px;" data-toggle="modal" data-target="#modal-default">Tambah Pegawai</button>
+  <a type="button" class="btn btn-block btn-primary" style="width:auto; margin-bottom: 10px;" data-toggle="modal" data-target="#modal-default">Tambah Pegawai</a>
     <table id="example1" class="table table-bordered table-striped">
     @if(!empty($karyawans))
       <thead>
@@ -119,23 +119,25 @@
 
       <!--modal delete -->
       <div class="modal modal-danger fade" id="modal-danger-{{$karyawan->id_karyawan}}">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Hapus Data Pegawai</h4>
-        </div>
-        <div class="modal-body">
-          <p>Yakin hapus data milik {{$karyawan->nama}} ?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
-          <form action="{{action('KaryawanController@destroy', $karyawan['id_karyawan'])}}" method="post">
-            @csrf
-            <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button>
-          </form>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Hapus Data Pegawai</h4>
+            </div>
+            <div class="modal-body">
+              <p>Yakin hapus data milik {{$karyawan->nama}} ?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
+              <form action="{{action('KaryawanController@destroy', $karyawan['id_karyawan'])}}" method="post">
+                @csrf
+                <input name="_method" type="hidden" value="DELETE">
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
       <!--end of modal delete -->

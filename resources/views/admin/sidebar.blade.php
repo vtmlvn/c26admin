@@ -4,7 +4,6 @@
         {{-- <li class="header">LAPORAN</li> --}}
         <!-- Optionally, you can add icons to the links -->
         <li><a href="{{route('home.index')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
-        <li><a href="{{route('customer')}}"><i class="fa fa-users"></i> <span>Customer</span></a></li>
         <li><a href="{{route('member')}}"><i class="fa fa-user"></i> <span>Membership</span></a></li>
         <li><a href="{{route('pegawai')}}"><i class="fa fa-briefcase"></i> <span>Pegawai (CEO)</span></a></li>
         <li class="treeview">
@@ -14,6 +13,7 @@
               </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{route('graph.index')}}">Grafik Keuangan</a></li>
             <li><a href="{{route('masuk')}}">Pemasukan</a></li>
             <li><a href="{{route('keluar')}}">Pengeluaran</a></li>
           </ul>

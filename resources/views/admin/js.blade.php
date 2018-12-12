@@ -14,10 +14,10 @@
 <!-- ChartJS -->
 <script src="{{asset('AdminLTE/bower_components/chart.js/Chart.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('AdminLTE/dist/js/pages/dashboard2.js')}}"></script>
+{{-- <script src="{{asset('AdminLTE/dist/js/pages/dashboard2.js')}}"></script> --}}
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('AdminLTE/dist/js/demo.js')}}"></script>
-
+{{-- <script src="{{asset('AdminLTE/dist/js/demo.js')}}"></script> --}}
+@yield('addJS')
 <script>
   $(function () {
     $('#example1').DataTable()
