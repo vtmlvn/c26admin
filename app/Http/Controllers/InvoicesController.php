@@ -34,6 +34,7 @@ class InvoicesController extends Controller
         'tanggal_masuk' => 'required|date_format:Y-m-d',
         'tanggal_keluar' => 'required|date_format:Y-m-d',
         'judul' => 'required|max:255',
+        'status'=>'required|max:255',
         'diskon' => 'required|integer|min:0',
         'status' => 'required',
         'orderans.*.nama' => 'required|max:255',
@@ -88,12 +89,12 @@ class InvoicesController extends Controller
     public function update(Request $req, $id)
     {
       $this->validate($req, [
-        'invoice_no' => 'required|alpha_dash|unique:invoices',
         'nama_customer' => 'required|max:255',
         'alamat_customer' => 'required|max:255',
         'tanggal_masuk' => 'required|date_format:Y-m-d',
         'tanggal_keluar' => 'required|date_format:Y-m-d',
         'judul' => 'required|max:255',
+        'status'=>'required|max:255',
         'diskon' => 'required|integer|min:0',
         'orderans.*.nama' => 'required|max:255',
         'orderans.*.harga' => 'required|min:1|integer',

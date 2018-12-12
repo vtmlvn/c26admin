@@ -36,6 +36,7 @@
         tanggal_masuk: '{{$now}}',
         tanggal_keluar: '',
         diskon: 0,
+        status: '',
         orderans: [{
             nama: '',
             harga: 0,

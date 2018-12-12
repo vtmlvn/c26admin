@@ -28,3 +28,9 @@ Route::resource('invoices','InvoicesController');
 Route::resource('pegawai','KaryawanController');
 Route::resource('member','MembershipController');
 Route::get('generate-pdf/{id}', 'InvoicesController@pdfview')->name('generate-pdf');
+
+Route::get('/layanan','Controller@layanan')->name('layanan');
+Route::get('/membership','Controller@membership')->name('membership');
+Route::get('/tentangkami','Controller@tentangkami')->name('tentangkami');
+Route::get('/lacaklaundry','Controller@lacaklaundry')->name('lacaklaundry');
+Route::get('/ceksaldo','Controller@ceksaldo')->name('ceksaldo');

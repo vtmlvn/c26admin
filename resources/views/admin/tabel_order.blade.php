@@ -33,7 +33,7 @@
                     <td>{{ $invoice->tanggal_keluar }}</td>
                     <td>{{ $invoice->total_biaya }}</td>
                     <td>{{ $invoice->created_at->diffForHumans() }}</td>
-                    <td>{{ $invoice->status}}</td>
+                    <td>{{$invoice->status}}</td>
                     <td><a href="http://pdf-ace.com/pdfme?url=/invoices/{{ $invoice->invoice_no }}" target= "_blank">Save as PDF</a></td>
                     <td><a href="{{ route('invoices.show', $invoice)}}" class="btn btn-default btn-sm"><i class="fa fa-book"></i></a></td>
                     <td><a href="{{ route('invoices.edit', $invoice)}}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a></td>
@@ -47,7 +47,6 @@
             </tr>      
         @endforeach
         </tbody>
-      
     </table>
   </div>
   @else

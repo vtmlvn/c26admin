@@ -93,9 +93,11 @@
             <tr>
                 <td class="table-empty" colspan=3></td>
                 <td class="table-label">Status</td>
-                <td class="table-control">
-                    <input type="text" class="table-status_input" v-model="form.status">
+                <td class="table-status" :class="{'table-error': errors.status}">
+                    <input type="radio" v-model="form.status" value="Lunas">Lunas <br>
+                    <input type="radio" v-model="form.status" value="Belum Lunas">Belum Lunas
                 </td>
+                </div>
             </tr>
         </tfoot>
     </table>
