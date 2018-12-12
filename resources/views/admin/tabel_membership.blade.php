@@ -29,7 +29,7 @@
         <td>{{$membership['no_hp']}}</td>
         <td>{{$membership['jumlah_deposit']}}</td>
         <td><a type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-edit-{{$membership->id_membership}}"><i class="fa fa-edit"></i></a>
-        <a role="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger-{{ $membership->id_membership}}"><i class="fa fa-trash" ></i></button></td>
+        <a role="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-danger-{{$membership->id_membership}}"><i class="fa fa-trash" ></i></button></td>
       </tr>
         <!-- /.modal -->
   <div class="modal fade" id="modal-edit-{{$membership->id_membership}}">
